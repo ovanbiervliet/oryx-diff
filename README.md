@@ -124,12 +124,17 @@ oryx-diff/
 ├── icons/          icon.svg (source) + 16/32/48/128 px PNGs
 ├── screenshots/    Images used in this README
 ├── LICENSE         MIT license
+├── CONTRIBUTING.md How to report bugs and contribute
 └── README.md
 ```
 
 The version number appears in two places, `manifest.json` and the `VERSION` constant at the top of `content.js`. When you change it, change both.
 
 Current version: **0.1.17**
+
+## Contributing
+
+Bug reports and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
