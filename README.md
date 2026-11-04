@@ -8,11 +8,41 @@ Oryx keeps a full revision history but has no way to compare revisions. If you t
 
 ## Install
 
-1. Open `chrome://extensions` and turn on **Developer mode** (top right).
-2. Click **Load unpacked** and select the `oryx-diff` folder.
-3. Open or refresh a tab on `configure.zsa.io`.
+The extension isn't in the Chrome Web Store, so you load it from this folder as an "unpacked" extension. It works in Chrome and other Chromium-based browsers (Edge, Brave, Arc, Dia, …).
 
-After changing any file in the folder, click the reload button on the extension's card in `chrome://extensions`, then refresh the Oryx tab.
+### 1. Get the files
+
+Either clone the repo:
+
+```bash
+git clone https://github.com/ovanbiervliet/oryx-diff.git
+```
+
+or click **Code → Download ZIP** on the GitHub page and unzip it. Put the `oryx-diff` folder somewhere permanent: the browser reads the extension from that folder every time it starts, so don't move or delete it afterwards.
+
+### 2. Turn on Developer mode
+
+Open `chrome://extensions` (in other browsers it may be `edge://extensions`, `brave://extensions`, and so on) and switch on **Developer mode** at the top right. The **Load unpacked** button appears.
+
+![The extensions page with Developer mode on and the Load unpacked button](screenshots/install-extensions-page.png)
+
+### 3. Load the extension
+
+Click **Load unpacked** and select the `oryx-diff` folder, the one that contains `manifest.json`. Then click **Select**.
+
+![Choosing the oryx-diff folder in the file picker](screenshots/install-load-unpacked.png)
+
+**Oryx Diff** now appears in your list of extensions and is switched on.
+
+![Oryx Diff listed among the installed extensions](screenshots/install-loaded.png)
+
+### 4. Open Oryx
+
+Open or refresh a tab on [configure.zsa.io](https://configure.zsa.io) and sign in as usual. The extension only runs on that site.
+
+### Updating
+
+After pulling new changes (or editing any file in the folder), click the reload button (↻) on the extension's card in `chrome://extensions`, then refresh the Oryx tab.
 
 ## Usage
 
@@ -24,18 +54,16 @@ On any Oryx page, a **Diff revisions** button sits at the bottom center of the w
 
 ### 2. Pick two revisions
 
-The panel title shows the layout's name and keyboard, for example `Core Trip [voyager]`. Below that are two dropdowns, each listing every revision with its date, title and revision ID:
+The panel title shows the layout's name and keyboard, for example `Core Planck [planck-ez]`. Below that are two dropdowns, each listing every revision with its date, title and revision ID:
 
 - **Top dropdown:** the newer side of the comparison. It starts on the revision marked **(current)**.
 - **Bottom dropdown:** the older side. It starts on the revision just before the current one.
 
-**(current)** is the revision you have open. On a layout page that's the revision in the URL (`…/layouts/<layout>/<revision>/<layer>`). On pages without one, such as the history page or `…/latest/…`, it's the newest revision.
-
-So opening an older revision and then the panel shows what that revision changed compared with the one before it. Here the open revision is `Xbpm4x` from 27 Oct, not the newest one, and the panel shows that it swapped two mouse buttons on the Nums layer:
-
-![An older revision open in the layout view, marked (current) in the panel](screenshots/current-revision.png)
+**(current)** is the revision you have open. On a layout page that's the revision in the URL (`…/layouts/<layout>/<revision>/<layer>`). On pages without one, such as the history page or `…/latest/…`, it's the newest revision. So if you open an older revision and then the panel, it shows what that revision changed compared with the one before it.
 
 The comparison runs as soon as you change either dropdown.
+
+![The panel comparing the current revision with the previous one](screenshots/diff-compact.png)
 
 | Control | What it does |
 |---|---|
@@ -44,9 +72,9 @@ The comparison runs as soon as you change either dropdown.
 | ✎ | Open that revision in Oryx's layout view |
 | ? | Show or hide details: the version number, extra info and the Debug section. This setting is remembered. |
 
-With details hidden, the panel shows only the comparison. The screenshot at the top of this page is the same comparison with details shown.
+With details hidden, the panel shows only the comparison, as above. With details shown, you also see the version, the number of layers and keys per layer of each revision, and the Debug section:
 
-![The same comparison with details hidden](screenshots/diff-compact.png)
+![The same comparison with details shown](screenshots/diff-panel.png)
 
 ### 3. Read the result
 
@@ -71,7 +99,7 @@ For example, `KC_QUOTE / 2× TO` → `KC_QUOTE / hold TO / 2× TO` means a hold 
 
 ### It also works from the layout history page, on any ZSA keyboard
 
-On **My layouts → (a layout)**, the page with the revision timeline, the panel works the same way. This is handy for layouts you aren't currently viewing. Here it's a Planck EZ layout, where one revision added a hold action to the quote key and turned Space into a mouse click:
+On **My layouts → (a layout)**, the page with the revision timeline, the panel works the same way. This is handy for layouts you aren't currently viewing. Here the current revision of a Planck EZ layout is compared with an older one, with changes on two layers:
 
 ![Diff from the history page of a Planck EZ layout](screenshots/history-page.png)
 
