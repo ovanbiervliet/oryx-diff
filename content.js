@@ -1,11 +1,11 @@
-/* Oryx Diff v0.1.17
+/* Oryx Diff v0.1.18
  * Runs in the page's own context so it can reuse the GraphQL requests Oryx already makes
  * (same endpoint, same auth headers). Nothing leaves your browser except calls to Oryx itself.
  */
 (() => {
   'use strict';
 
-  const VERSION = '0.1.17'; // keep in sync with manifest.json (chrome.runtime isn't available in the page's context)
+  const VERSION = '0.1.18'; // keep in sync with manifest.json (chrome.runtime isn't available in the page's context)
   const DEFAULT_ENDPOINT = 'https://oryx.zsa.io/graphql';
   const GEOMETRIES = ['voyager', 'moonlander', 'ergodox-ez', 'planck-ez', 'glow'];
   const captures = []; // {url, headers, operationName, query, variables, data}
